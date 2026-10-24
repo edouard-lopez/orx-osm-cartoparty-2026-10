@@ -1,0 +1,9 @@
+.slidev-layout {
+  blockquote {
+    font-size: larger;
+    padding: 1em;
+  }
+  figure p {
+    margin: 0.5em;
+  }
+}

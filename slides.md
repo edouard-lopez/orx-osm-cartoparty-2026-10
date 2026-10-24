@@ -4,7 +4,7 @@ theme: seriph
 # random image from a curated Unsplash collection by Anthony
 # like them? see https://unsplash.com/collections/94734566/slidev
 # background: https://cover.sli.dev
-background: /public/background.jpg
+background: /background.jpg
 # some information about your slides (markdown enabled)
 title: Presentation d'OSM (OpenStreetMap)
 info: |
@@ -34,7 +34,7 @@ Présentation pour la cartopartie du 24 octbre 2026
 <small>Par Édouard Lopez / Groupe Mapadour</small>
 
 <div @click="$slidev.nav.next" class="mt-12 py-1" hover:bg="white op-10">
-  [Space] <carbon:arrow-right />  
+  [Space] <carbon:arrow-right />
 </div>
 
 <div class="abs-br m-6 text-xl">
@@ -50,19 +50,19 @@ Présentation pour la cartopartie du 24 octbre 2026
 The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
 -->
 ---
+hideInToc: true
+---
 
-# Sommaire  
+# Sommaire
 
 <Toc minDepth="1" maxDepth="1" />
-
-
 
 
 ---
 layout: two-cols
 ---
 
-# Contexte
+# Contexte de l'événement
 
 * Orx: village nature et nourricier
 * Inclus Kfé: café associatif, inclusion et lieu de rencontre
@@ -72,38 +72,89 @@ layout: two-cols
 
 ::right::
 
-![Lào Map](/public/lào-map.svg)
+![Lào Map](/lào-map.svg)
 
-
----
-
-# Historique
-
-La France a une tradition de la cartographie !
-* [Carte de Cassini][cassini] au XVIIIe siècle
-* Cartes topographiques de l'[IGN][ign] au XXe siècle
-* Transition vers les [cartes numériques et collaboratives][osm] au XXIe siècle
-
-  * base libre de données géographiques au Monde.
-    * 1 lieu = plusieurs informations
-  * Principe de collaboration
-  * En évolution permanente
-
-[cassini]: https://fr.wikipedia.org/wiki/Carte_de_Cassini
-[ign]: https://fr.wikipedia.org/wiki/Institut_national_de_l%27information_g%C3%A9ographique_et_foresti%C3%A8re
-[osm]: https://openstreetmap.org
 
 ---
 layout: two-cols
 ---
 
-## Participatif
+# Historique
+
+La France a une longue tradition de la cartographie !
+
+## Cartographie en France
+
+* XVIII<sup>e</sup> siècle : [Carte de Cassini][cassini] par [triangulation][triangulation]
+* XIX<sup>e</sup> siècle : Carte d'état major
+* XX<sup>e</sup> siècle : Cartes topographiques de l'[IGN][ign]
+* XXI<sup>e</sup> siècle : [cartes numériques et collaboratives][osm].
+
+::right::
+
+<div class="flex flex-col items-center gap-8 align-center">
+  <figure class="flex flex-col items-center">
+    <img src="/histoire-carte-cassini-1783.JPG" alt="Carte de France de 1783 (partie Nord-Ouest)." width="250vh" >
+    <figcaption class="text-center text-sm">
+      <i>Par Cassini de Thury</i>
+      <!-- — Planche de l'ouvrage de J.J. Levallois Mesurer la Terre., Domaine public, https://commons.wikimedia.org/w/index.php?curid=41009875 -->
+    </figcaption>
+  </figure>
+
+  <figure class="flex flex-col items-center">
+    <img src="/histoire-planchette_2_1751.jpg" alt="Carte de France de 1783 (partie Nord-Est)." width="125vh" >
+    <figcaption class="text-center text-sm">
+      <i>Levé à la planchette</i>
+      <!-- Par de Marinoni — BnF, Gallica, ETH-Bibliothek Zürich, De re ichnographica, accès en ligne, voir p. 49., Domaine public, https://commons.wikimedia.org/w/index.php?curid=43339156 -->
+    </figcaption>
+  </figure>
+</div>
+
+[triangulation]: https://www.youtube.com/watch?v=8mbmY8kYp5g "La cartographie au fil du temps – de 1667 aux années 2000"
+[cassini]: https://fr.wikipedia.org/wiki/Carte_de_Cassini
+[ign]: https://fr.wikipedia.org/wiki/Institut_national_de_l%27information_g%C3%A9ographique_et_foresti%C3%A8re
+[osm]: https://openstreetmap.org
+
+
+---
+layout: two-cols
+---
+
+# OpenStreetMap
+
+Projet **collaboratif** de cartographie en ligne qui vise à constituer une **base de données géographiques libre** du monde
+
+Créé en 2004 par Steve Coast à l'University College de Londres.
+
+* Principe collaboratif comme Wikipédia
+* Base de données géographiques au Monde.
+  * 1 point = plusieurs informations
+* Libre d'utilisation (licence _Open Database License_)
+  * Les données peuvent être utilisées, modifiées et partagées librement
+* En évolution permanente
+* Réactive <abbr title="Humanitarian OpenStreetMap Team"> [HOT][HOT] </abbr>
+
+[HOT]: https://www.hotosm.org/en/
+::right::
+
+<div class="flex flex-col items-center gap-8 align-center">
+
+![logo OSM](/logo-osm.png)
+
+</div>
+
+
+---
+layout: two-cols
+---
+
+# Participatif
 
 OpenStreetMap, c’est l’équivalent de Wikipédia pour les cartes
 
 Vous connaissez bien le quartier dans lequel vous vivez? Quelques choses à changer ? C'est l'occasion de contribuer
 
-### 🌪💥 Lors de crises
+## 🌪💥 Lors de crises
 
 OpenStreetMap permet de [cartographier rapidement les zones touchées][crisis-mapping] pour faciliter l'aide et la coordination des secours.
 
@@ -114,39 +165,22 @@ ex. Lors du passage à  [Mayotte de la tempête Chido : cartographie des dommage
 
 ::right::
 
-<div class="flex flex-col items-center gap-2 align-center">
 
-  <figure class="flex flex-col items-center">
-  <img src="/public/StreetComplete-logo.svg" alt="streetcomplete logo">
-  <figcaption class="text-center">
+# Communautés
+  * Fondation (monde) 2006
+  * Association OSM-France 2011
+  * Mapadour: Sud-Landes Pays-Basque
 
-  [StreetComplete](https://streetcomplete.app/)
+<style>
+  .slidev-layout {
+    gap: 3rem;
 
-  </figcaption>
-  </figure>
+    div.col-right, ul {
+      margin-left: 2rem;
+    }
+  }
 
-  <figure class="flex flex-col items-center">
-  <img src="/public/logo-osm.png" alt="OSM logo" width="80vh" >
-  <figcaption class="text-center">
-
-  l'[Éditeur web d'OSM](https://www.openstreetmap.org)
-
-  </figcaption>
-  </figure>
-
-  <figure class="flex flex-col items-center">
-  <img src="/public/Panoramax_logo.svg" alt="Panoramax logo" width="80vh">
-  <figcaption class="text-center">
-
-  [Panoramax](https://panoramax.openstreetmap.fr)
-
-  </figcaption>
-  </figure>
-</div>
-
----
-layout: image
----
+</style>
 
 ---
 
@@ -160,23 +194,60 @@ layout: image
 
 
 ---
+layout: two-cols-header
+---
 
-## Libre
+# Libre
 
-Vous êtes libre d’utiliser, télécharger et remixer toutes nos données, et ce même dans un but commercial. Les données sont publiées sous license ouverte
+Vous êtes libre d’utiliser, télécharger et remixer toutes nos données, et ce même dans un but commercial. Les données sont publiées sous licence ouverte.
 
 > Nous croyons en un monde où les données cartographiques sont libres et ouvertes.
 
+<br>
 
-[À quoi ça sert ? Il y a déjà l’IGN et Google/Bing/etc. Maps…][ya-google-map]
+::left::
+
+À quoi ça sert ? Il y a déjà l’IGN et Google Maps ?
+
+<!-- [ya-google-map]: https://www.palabritudes.net/2024/08/15/quinze-ans-contribution-osm.html -->
+
+* Les rendus des cartes sont souvent
+  * figés et non personnalisable
+  * orientées publicités
+* màj surtout sur les zones urbaines
 * les données ne sont pas libres
-* le rendu des cartes est souvent
-  * figé et non personnalisable
-  * publicitaire
-* màj focalisé sur les zones économiquement intéressantes
 
-[ya-google-map]: https://www.palabritudes.net/2024/08/15/quinze-ans-contribution-osm.html
+::right::
 
+<div class="flex flex-col items-center gap-4">
+
+  <figure class="flex flex-row items-center">
+  <img src="/StreetComplete-logo.svg" alt="streetcomplete logo">
+  <figcaption class="text-center text-sm">
+
+  [StreetComplete](https://streetcomplete.app/)
+
+  </figcaption>
+  </figure>
+
+  <figure class="flex flex-row items-center">
+  <img src="/logo-osm.png" alt="OSM logo" width="80vh" >
+  <figcaption class="text-center text-sm">
+
+  l'[Éditeur web d'OSM](https://www.openstreetmap.org)
+
+  </figcaption>
+  </figure>
+
+  <figure class="flex flex-row items-center">
+  <img src="/Panoramax_logo.svg" alt="Panoramax logo" width="80vh">
+  <figcaption class="text-center text-sm">
+
+  [Panoramax](https://panoramax.openstreetmap.fr)
+
+  </figcaption>
+  </figure>
+</div>
 
 ---
 layout: two-cols
@@ -186,9 +257,11 @@ layout: two-cols
 
 Des données basées sur les connaissances du terrain, collectées par des contributeur-ices du monde entier.
 
-La qualité des données motive les institutions à collaborer avec OSM: 
+La qualité des données motive les institutions à collaborer avec OSM:
 * Base Adresses Nationale
-* projet [Panoramax][panoramax]
+* Projet leader mondial ([Panoramax][panoramax])
+* Situation de crise
+* Création d'entreprise (ex. Géovélo)
 
 [panoramax]: https://panoramax.openstreetmap.fr
 
@@ -199,14 +272,9 @@ La qualité des données motive les institutions à collaborer avec OSM:
 Constamment mises à jour par des contributeur-ices du monde entier et mise à disposition à la volée.
 
 * [Pifomètre][pifometre]: rapprocher les données OpenStreetMap, le fichier Topo (ex-Fantoir), le cadastre et la BAN pour favoriser l'enrichissement
+* Utilisation par les villes pour du suivi des infrastructures et de l'urbanisme
 
 [pifometre]: https://www.palabritudes.net/2024/08/15/quinze-ans-contribution-osm.html
----
-
-## Des cartes
-
-La carte est un objet du quotidien. Nous l’utilisons pour représenter le territoire, nous repérer dans l’espace et nous guider. OpenStreetMap permet de créer de nombreuses cartes personnalisées.
-[En savoir plus](https://www.openstreetmap.fr/carte/)
 
 ---
 
@@ -225,51 +293,76 @@ De nombreux acteurs s’appuient sur l’écosystème OpenStreetMap, ses donnée
 
 [qui-utilise]: https://welcome.openstreetmap.org/about-osm-community/consumers/
 
-
----
-
-# Communauté
-  * Fondation (monde) 2006
-  * Association OSM-France 2011
-  * Mapadour: Sud-Landes Pays-Basque
-
-
 ---
 layout: two-cols
 ---
 # StreetComplete
 
+Application pour contribuer à la base OpenStreetMap au travers d'un système de questions simples sur les éléments environnants incomplètement renseignés
+
 * iOS & Android
 
   <figure class="flex flex-col items-center">
-  <img src="/public/StreetComplete-logo.svg" alt="streetcomplete logo">
-  <figcaption class="text-center">
+  <img src="/StreetComplete-logo.svg" alt="streetcomplete logo">
+  <figcaption class="text-center text-sm">
 
   [StreetComplete](https://streetcomplete.app/)
 
   </figcaption>
   </figure>
-  
+
 ::right::
 
-![les quetes dans streetcomplete](/public/streetcomplete-quetes.jpeg)
+![les quetes dans streetcomplete](/streetcomplete-quetes.jpeg)
 
 
 ---
 layout: two-cols
 ---
-# L'Éditeur web d'OSM
-  
+# L'Éditeur web d'OSM iD
+
+Permet l'édition avancée des données (point, polygone, ligne, etc) avec différentes sources de photos aériennes comme fond de carte.
+
+Fonctionnalités:
+* Ajouter/Modifier/Supprimer des <abbr title="Point d'intérêt">POI</abbr>s ;
+* Ajouter un chemin ;
+* Modifier des formes ;
+* Modifier les propriétés des objets OSM existants ;
+* Modifier les relations ;
+* Voir/Modifier  les notes ;
+* Travailler hors-ligne ;
+
+<figure class="flex flex-col items-center margin-bottom-xs">
+  <img src="/logo-osm.png" alt="OSM logo" width="80vh" class="margin-bottom-xs">
+  <figcaption class="text-center text-sm">
+ <a href="https://www.openstreetmap.org/edit">
+  OSM iD
+ </a>
+  </figcaption>
+</figure>
+
 ::right::
 
-  <figure class="flex flex-col items-center">
-  <img src="/public/logo-osm.png" alt="OSM logo" width="80vh" >
-  <figcaption class="text-center">
+<div class="flex flex-col items-center gap-8 align-center">
 
-  l'[Éditeur web d'OSM](https://www.openstreetmap.org)
-
+<figure class="flex flex-col items-center">
+  <img src="/OpenStreetMap_data_primitives_in_iD.png" alt="OpenStreetMap logo" width="50%">
+  <figcaption class="text-center text-sm">
+  <i>Primitives de données OSM (nœuds, tracés et relations)</i>
+  <!-- By CactiStaccingCrane  - Own work, CC BY 4.0, https://commons.wikimedia.org/w/index.php?curid=127205850 -->
   </figcaption>
-  </figure>
+</figure>
+
+
+<figure class="flex flex-col items-center">
+  <img src="/osm-id-editor.png" alt="OSM logo" width="80%" >
+  <figcaption class="text-center text-sm">
+  <i>Aperçu de l'éditeur OSM iD sur Orx</i>
+  </figcaption>
+</figure>
+
+</div>
+
 
 ---
 layout: two-cols
@@ -277,10 +370,34 @@ layout: two-cols
 
 # Panoramax
 
+Commun numérique, collaboratif, libre et ouvert de vues immersives. <br>Alternative libre à Google Street View.
+
+<!-- En 2020, le rachat par Meta, la maison-mère de Facebook, d’un des seuls vrais concurrents de Google Street View  -->
+
+* Création: 2022 par l'IGN + OpenStreetMap France
+* [Stats oct. 2026][panoramax-stats]
+  * Contributeur-ces: ~2 700,
+  * Kilomètres parcourus: ~1 100 000 km
+  * Photos: 122 000 000
+  * Instances: 🇫🇷 🇹🇼 🇧🇪 🇦🇷 🇨🇿 🇨🇦 🇭🇷 🇪🇸 🇳🇱 🏴󠁧󠁢󠁷󠁬󠁳󠁿 …
+
+Usage: le SDIS repère les bornes incendies 🧑‍🚒
+
+<!--
+autres usage:
+surveiller l'état de la voirie et du mobilier urbain.
+vérifier le respect de la réglementation sur l'affichage publicitaire
+
+Sources:
+* Comment les usages de Panoramax se dessinent dans les territoires : https://www.banquedesterritoires.fr/
+* Avec ses vues 3D, Val Parisis agglo ajuste sa carte au territoire (95) : https://www.banquedesterritoires.fr/experience/avec-ses-vues-3d-val-parisis-agglo-ajuste-sa-carte-au-territoire-95
+* Panoramax, l'alternative libre et souveraine à Street View : https://www.europe1.fr/emissions/initiative-a-impact/panoramax-lalternative-libre-et-souveraine-a-street-view-4229690#about
+*  Panoramax : le projet citoyen initié par l'Institut national de l'information géographique et forestière (IGN) pour ne plus dépendre de Google Street View : https://www.franceinfo.fr/replay-radio/nouveau-monde/panoramax-le-projet-citoyen-initie-par-l-institut-national-de-l-information-geographique-et-forestiere-ign-pour-ne-plus-dependre-de-google-street-view_6754240.html
+ -->
 
   <figure class="flex flex-col items-center">
-  <img src="/public/Panoramax_logo.svg" alt="Panoramax logo" width="80vh">
-  <figcaption class="text-center">
+  <img src="/Panoramax_logo.svg" alt="Panoramax logo" width="80vh">
+  <figcaption class="text-center text-sm">
 
   [Panoramax](https://panoramax.openstreetmap.fr)
 
@@ -290,21 +407,24 @@ layout: two-cols
 ::right::
 
 <figure>
-  <img src="/public/panoramax-preview.jpg" alt="panoramax preview">
-  <figcaption class="text-center">
+  <img src="/panoramax-preview.jpg" alt="panoramax preview">
+  <figcaption class="text-center text-sm">
 
   Panoramax Preview
 
   </figcaption>
 </figure>
 <figure>
-  <img src="/public/panoramax-orx.png" alt="panoramax orx">
-  <figcaption class="text-center">
+  <img src="/panoramax-orx.png" alt="panoramax orx">
+  <figcaption class="text-center text-sm">
 
-  Jardin <s>partagé</s> d'Orx
+  Jardin partagé d'Orx
 
   </figcaption>
 </figure>
+
+[panoramax-stats]: https://panoramax.fr/stats/
+
 
 ---
 
@@ -318,669 +438,27 @@ layout: two-cols
 
 # Cartopartie
 
----
+ * Il s'agit d'un événement communautaire convivial,
 
-# OSM C'est quoi ?
+<!-- ouvert à tous, et bien que certains puissent être des experts, les nouveaux venus sont toujours les bienvenus. C'est un très bon moyen d'en savoir plus sur le projet, et si vous n'avez jamais eu à récolter des informations pour mettre à jour OpenStreetMap, c'est une bonne façon d'apprendre à le faire. Cependant, certaines mapping parties peuvent être plus spécifiquement dédiées à la formation de nouveaux utilisateurs. Dans d'autres cas, les organisateurs peuvent fournir des récepteurs GPS de manière à jouer avec des gadgets (bien que l'utilisation de GPS ne soit pas nécessaire pour réaliser des ajouts sur OpenStreetMap). -->
 
-Slidev is a slides maker and presenter designed for developers, consist of the following features
+* L'organisation d'une mapping party peut prendre diverses formes,
 
-* 📝 **Text-based** - focus on the content with Markdown, and then style them later
-* 🎨 **Themable** - themes can be shared and re-used as npm packages
-* 🧑‍💻 **Developer Friendly** - code highlighting, live coding with autocompletion
-* 🤹 **Interactive** - embed Vue components to enhance your expressions
-* 🎥 **Recording** - built-in recording and camera view
-* 📤 **Portable** - export to PDF, PPTX, PNGs, or even a hostable SPA
-* 🛠 **Hackable** - virtually anything that's possible on a webpage is possible in Slidev
-<br>
+<!-- par exemple il peut simplement s'agir de se donner rendez-vous dans un bar après avoir cartographié une zone, mais en général un événement plus ambitieux peut nécessiter une rencontre préalable pour discuter des actions à mener et pour mettre en place des équipes de participants. Ensuite, il peut être utile de mettre à disposition des ordinateurs connectés à internet, pour réaliser l'import des données récoltées dans la journée, mais cela n'st pas indispensable (dans le cas de mapping parties plus simples, les participants repartent avec leurs données et les saisissent plus tard à leur rythme). -->
 
-![logo OSM](/public/logo-osm.png)
-<br>
+* Pour former des débutants il peut être utile de disposer d'au moins un ordinateur/téléphone,
+<!-- pour pouvoir effectuer des démonstrations de saisie de données. Soyez prêts à utiliser les fonctionalités de saisie de JOSM en mode non connecté (téléchargez et enregistrez un fichier .osm au préalable) dans le cas où l'accès à internet ne serait pas possible. Si l'utilisation de GPS est prévue, il peut être pratique d'exporter les données de l'appareil pour les besoins de la démonstration, et parce qu'il s'agit d'une opération un peu complexe que des débutants pourraient ne pas arriver à réaliser seuls une fois de retour chez eux. Ainsi, vous pourrez mettre leur fichier en ligne pour eux. -->
 
-Read more about [Why Slidev?](https://sli.dev/guide/why)
+* Une fois que les opérations de cartographie sont terminées, les participants partagent nourriture et boissons
 
-<!--
-You can have `style` tag in markdown to override the style for the current page.
-Learn more: https://sli.dev/features/slide-scope-style
--->
+<!-- les participants partagent nourriture et boissons, et prennent du plaisir à être ensemble. Après tout, il s'agit d'une fête ! En fait il n'est pas obligatoire de cartographier lors d'une mapping party. Parfois, il s'agit juste de faire la fête ! -->
 
-<style>
-h1 {
-  background-color: #2B90B6;
-  background-image: linear-gradient(45deg, #4EC5D4 10%, #146b8c 20%);
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
+Liste des [Événement en cours](https://wiki.openstreetmap.org/wiki/Current_events)
 
-<!--
-Here is another comment.
--->
+<figure class="flex flex-col items-center">
+  <img src='/cartoparty-london.jpg' alt='Cartoparty à Londres' width='40%'>
+  <figcaption class="text-center text-sm">
+  Cartoparty à Londres
+  </figcaption>
+</figure>
 
----
-transition: slide-up
-level: 2
----
-
-# Navigation
-
-Hover on the bottom-left corner to see the navigation's controls panel, [learn more](https://sli.dev/guide/ui#navigation-bar)
-
-## Keyboard Shortcuts
-
-|                                                     |                             |
-| --------------------------------------------------- | --------------------------- |
-| <kbd>right</kbd> / <kbd>space</kbd>                 | next animation or slide     |
-| <kbd>left</kbd>  / <kbd>shift</kbd><kbd>space</kbd> | previous animation or slide |
-| <kbd>up</kbd>                                       | previous slide              |
-| <kbd>down</kbd>                                     | next slide                  |
-
-<!-- https://sli.dev/guide/animations.html#click-animation -->
-<img
-  v-click
-  class="absolute -bottom-9 -left-7 w-80 opacity-50"
-  src="https://sli.dev/assets/arrow-bottom-left.svg"
-  alt=""
-/>
-<p v-after class="absolute bottom-23 left-45 opacity-30 transform -rotate-10">Here!</p>
-
----
-layout: two-cols
-layoutClass: gap-16
----
-
-# Table of contents
-
-You can use the `Toc` component to generate a table of contents for your slides:
-
-```html
-<Toc minDepth="1" maxDepth="1" />
-```
-
-The title will be inferred from your slide content, or you can override it with `title` and `level` in your frontmatter.
-
-::right::
-
-<Toc text-sm minDepth="1" maxDepth="2" />
-
----
-
-layout: image-right
-image: <https://cover.sli.dev>
----
-
-# Code
-
-Use code snippets and get the highlighting directly, and even types hover!
-
-```ts [filename-example.ts] {all|4|6|6-7|9|all} twoslash
-// TwoSlash enables TypeScript hover information
-// and errors in markdown code blocks
-// More at https://shiki.style/packages/twoslash
-import { computed, ref } from 'vue'
-
-const count = ref(0)
-const doubled = computed(() => count.value * 2)
-
-doubled.value = 2
-```
-
-<arrow v-click="[4, 5]" x1="350" y1="310" x2="195" y2="342" color="#953" width="2" arrowSize="1" />
-
-<!-- This allow you to embed external code blocks -->
-<<< @/snippets/external.ts#snippet
-
-<!-- Footer -->
-
-[Learn more](https://sli.dev/features/line-highlighting)
-
-<!-- Inline style -->
-<style>
-.footnotes-sep {
-  @apply mt-5 opacity-10;
-}
-.footnotes {
-  @apply text-sm opacity-75;
-}
-.footnote-backref {
-  display: none;
-}
-</style>
-
-<!--
-Notes can also sync with clicks
-
-[click] This will be highlighted after the first click
-
-[click] Highlighted with `count = ref(0)`
-
-[click:3] Last click (skip two clicks)
--->
-
----
-
-level: 2
----
-
-# Shiki Magic Move
-
-Powered by [shiki-magic-move](https://shiki-magic-move.netlify.app/), Slidev supports animations across multiple code snippets.
-
-Add multiple code blocks and wrap them with <code>````md magic-move</code> (four backticks) to enable the magic move. For example:
-
-````md magic-move {lines: true}
-```ts {*|2|*}
-// step 1
-const author = reactive({
-  name: 'John Doe',
-  books: [
-    'Vue 2 - Advanced Guide',
-    'Vue 3 - Basic Guide',
-    'Vue 4 - The Mystery'
-  ]
-})
-```
-
-```ts {*|1-2|3-4|3-4,8}
-// step 2
-export default {
-  data() {
-    return {
-      author: {
-        name: 'John Doe',
-        books: [
-          'Vue 2 - Advanced Guide',
-          'Vue 3 - Basic Guide',
-          'Vue 4 - The Mystery'
-        ]
-      }
-    }
-  }
-}
-```
-
-```ts
-// step 3
-export default {
-  data: () => ({
-    author: {
-      name: 'John Doe',
-      books: [
-        'Vue 2 - Advanced Guide',
-        'Vue 3 - Basic Guide',
-        'Vue 4 - The Mystery'
-      ]
-    }
-  })
-}
-```
-
-Non-code blocks are ignored.
-
-```vue
-<!-- step 4 -->
-<script setup>
-const author = {
-  name: 'John Doe',
-  books: [
-    'Vue 2 - Advanced Guide',
-    'Vue 3 - Basic Guide',
-    'Vue 4 - The Mystery'
-  ]
-}
-</script>
-```
-````
-
----
-
-# Components
-
-<div grid="~ cols-2 gap-4">
-<div>
-
-You can use Vue components directly inside your slides.
-
-We have provided a few built-in components like `<Tweet/>`, `<BlueSky/>`, and `<Youtube/>` that you can use directly. And adding your custom components is also super easy.
-
-```html
-<Counter :count="10" />
-```
-
-<!-- ./components/Counter.vue -->
-<Counter :count="10" m="t-4" />
-
-Check out [the guides](https://sli.dev/builtin/components.html) for more.
-
-</div>
-<div>
-
-```html
-<Tweet id="1390115482657726468" />
-```
-
-<Tweet id="1390115482657726468" scale="0.65" />
-
-</div>
-</div>
-
-<!--
-Presenter note with **bold**, *italic*, and ~~striked~~ text.
-
-Also, HTML elements are valid:
-<div class="flex w-full">
-  <span style="flex-grow: 1;">Left content</span>
-  <span>Right content</span>
-</div>
--->
-
----
-
-class: px-20
----
-
-# Themes
-
-Slidev comes with powerful theming support. Themes can provide styles, layouts, components, or even configurations for tools. Switching between themes by just **one edit** in your frontmatter:
-
-<div grid="~ cols-2 gap-2" m="t-2">
-
-```yaml
----
-theme: default
----
-```
-
-```yaml
----
-theme: seriph
----
-```
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-default/01.png?raw=true" alt="">
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-seriph/01.png?raw=true" alt="">
-
-</div>
-
-Read more about [How to use a theme](https://sli.dev/guide/theme-addon#use-theme) and
-check out the [Awesome Themes Gallery](https://sli.dev/resources/theme-gallery).
-
----
-
-# Clicks Animations
-
-You can add `v-click` to elements to add a click animation.
-
-<div v-click>
-
-This shows up when you press <kbd>space</kbd> or <kbd>right</kbd>, or click outside the slide on the right.
-
-```html
-<div v-click>This shows up when you trigger a click animation.</div>
-```
-
-</div>
-
-<p v-click>
-You can also add modifiers to change the animation:
-</p>
-
-<div class="grid gap-3 mt-4 text-sm" style="grid-template-columns: repeat(3, 1fr) 1.5fr 1fr">
-  <div v-after.up class="p-3 rounded border border-primary/20 bg-primary/10">
-    <div class="font-mono text-xs opacity-60 mb-1">v-click.up</div>
-    <div>Slide from bottom</div>
-  </div>
-  <div v-click.fade-in class="p-3 rounded border border-primary/30 bg-primary/15">
-    <div class="font-mono text-xs opacity-60 mb-1">v-click.fade-in</div>
-    <div>Fade in</div>
-  </div>
-  <div v-click.fade class="p-3 rounded border border-primary/40 bg-primary/20">
-    <div class="font-mono text-xs opacity-60 mb-1">v-click.fade</div>
-    <div>Dim (0.5 opacity)</div>
-  </div>
-  <div v-click.fade.right.scale class="p-3 rounded border border-primary/50 bg-primary/25">
-    <div class="font-mono text-xs opacity-60 mb-1">v-click.fade.right.scale</div>
-    <div>Composed</div>
-  </div>
-  <div v-click.none class="p-3 rounded border border-primary/60 bg-primary/30">
-    <div class="font-mono text-xs opacity-60 mb-1">v-click.none</div>
-    <div>No transition</div>
-  </div>
-</div>
-
-<v-click>
-
-The <span v-mark.red="7"><code>v-mark</code> directive</span>
-also allows you to add
-<span v-mark.circle.orange="8">inline marks</span>
-, powered by [Rough Notation](https://roughnotation.com/):
-
-```html
-<span v-mark.underline.orange>inline markers</span>
-```
-
-</v-click>
-
-<div v-click mt-12>
-
-[Learn more](https://sli.dev/guide/animations#click-animation)
-
-</div>
-
----
-
-# Motions
-
-Motion animations are powered by [@vueuse/motion](https://motion.vueuse.org/), triggered by `v-motion` directive.
-
-```html
-<div
-  v-motion
-  :initial="{ x: -80 }"
-  :enter="{ x: 0 }"
-  :click-3="{ x: 80 }"
-  :leave="{ x: 1000 }"
->
-  Slidev
-</div>
-```
-
-<div class="w-60 relative">
-  <div class="relative w-40 h-40">
-    <img
-      v-motion
-      :initial="{ x: 800, y: -100, scale: 1.5, rotate: -50 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-square.png"
-      alt=""
-    />
-    <img
-      v-motion
-      :initial="{ y: 500, x: -100, scale: 2 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-circle.png"
-      alt=""
-    />
-    <img
-      v-motion
-      :initial="{ x: 600, y: 400, scale: 2, rotate: 100 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-triangle.png"
-      alt=""
-    />
-  </div>
-
-  <div
-    class="text-5xl absolute top-14 left-40 text-[#2B90B6] -z-1"
-    v-motion
-    :initial="{ x: -80, opacity: 0}"
-    :enter="{ x: 0, opacity: 1, transition: { delay: 2000, duration: 1000 } }">
-    Slidev
-  </div>
-</div>
-
-<!-- vue script setup scripts can be directly used in markdown, and will only affects current page -->
-<script setup lang="ts">
-const final = {
-  x: 0,
-  y: 0,
-  rotate: 0,
-  scale: 1,
-  transition: {
-    type: 'spring',
-    damping: 10,
-    stiffness: 20,
-    mass: 2
-  }
-}
-</script>
-
-<div
-  v-motion
-  :initial="{ x:35, y: 30, opacity: 0}"
-  :enter="{ y: 0, opacity: 1, transition: { delay: 3500 } }">
-
-[Learn more](https://sli.dev/guide/animations.html#motion)
-
-</div>
-
----
-
-# $\LaTeX$
-
-$\LaTeX$ is supported out-of-box. Powered by [$\KaTeX$](https://katex.org/).
-
-<div h-3 />
-
-Inline $\sqrt{3x-1}+(1+x)^2$
-
-Block
-$$ {1|3|all}
-\begin{aligned}
-\nabla \cdot \vec{E} &= \frac{\rho}{\varepsilon_0} \\
-\nabla \cdot \vec{B} &= 0 \\
-\nabla \times \vec{E} &= -\frac{\partial\vec{B}}{\partial t} \\
-\nabla \times \vec{B} &= \mu_0\vec{J} + \mu_0\varepsilon_0\frac{\partial\vec{E}}{\partial t}
-\end{aligned}
-$$
-
-[Learn more](https://sli.dev/features/latex)
-
----
-
-# Diagrams
-
-You can create diagrams / graphs from textual descriptions, directly in your Markdown.
-
-<div class="grid grid-cols-4 gap-5 pt-4 -mb-6">
-
-```mermaid {scale: 0.5, alt: 'A simple sequence diagram'}
-sequenceDiagram
-    Alice->John: Hello John, how are you?
-    Note over Alice,John: A typical interaction
-```
-
-```mermaid {theme: 'neutral', scale: 0.8}
-graph TD
-B[Text] --> C{Decision}
-C -->|One| D[Result 1]
-C -->|Two| E[Result 2]
-```
-
-```mermaid
-mindmap
-  root((mindmap))
-    Origins
-      Long history
-      ::icon(fa fa-book)
-      Popularisation
-        British popular psychology author Tony Buzan
-    Research
-      On effectiveness<br/>and features
-      On Automatic creation
-        Uses
-            Creative techniques
-            Strategic planning
-            Argument mapping
-    Tools
-      Pen and paper
-      Mermaid
-```
-
-```plantuml {scale: 0.7}
-@startuml
-
-package "Some Group" {
-  HTTP - [First Component]
-  [Another Component]
-}
-
-node "Other Groups" {
-  FTP - [Second Component]
-  [First Component] --> FTP
-}
-
-cloud {
-  [Example 1]
-}
-
-database "MySql" {
-  folder "This is my folder" {
-    [Folder 3]
-  }
-  frame "Foo" {
-    [Frame 4]
-  }
-}
-
-[Another Component] --> [Example 1]
-[Example 1] --> [Folder 3]
-[Folder 3] --> [Frame 4]
-
-@enduml
-```
-
-</div>
-
-Learn more: [Mermaid Diagrams](https://sli.dev/features/mermaid) and [PlantUML Diagrams](https://sli.dev/features/plantuml)
-
----
-
-foo: bar
-dragPos:
-  square: 691,32,167,_,-16
----
-
-dragPos:
-  square: -41,0,0,0
----
-
-dragPos:
-  square: -41,0,0,0
----
-
-dragPos:
-  square: 0,-332,0,0
----
-
-dragPos:
-  square: -41,0,0,0
----
-
-dragPos:
-  square: 0,-332,0,0
----
-
-dragPos:
-  square: 0,-332,0,0
----
-
-dragPos:
-  square: -59,0,0,0
----
-
-dragPos:
-  square: 0,-332,0,0
----
-
-dragPos:
-  square: 0,-332,0,0
----
-
-dragPos:
-  square: -59,0,0,0
----
-dragPos:
-  square: -59,0,0,0
----
-
-# Draggable Elements
-
-Double-click on the draggable elements to edit their positions.
-
-<br>
-
-###### Directive Usage
-
-```md
-<img v-drag="'square'" src="https://sli.dev/logo.png">
-```
-
-<br>
-
-###### Component Usage
-
-```md
-<v-drag text-3xl>
-  <div class="i-carbon:arrow-up" />
-  Use the `v-drag` component to have a draggable container!
-</v-drag>
-```
-
-<v-drag pos="664,206,261,_,-15">
-  <div text-center text-3xl border border-main rounded>
-    Double-click me!
-  </div>
-</v-drag>
-
-<img v-drag="'square'" src="https://sli.dev/logo.png">
-
-###### Draggable Arrow
-
-```md
-<v-drag-arrow two-way />
-```
-
-<v-drag-arrow pos="67,452,253,46" two-way op70 />
-
----
-
-l
-src: ./pages/imported-slides.md
-hide: false
----
-
-
----
-
-# Monaco Editor
-
-Slidev provides built-in Monaco Editor support.
-
-Add `{monaco}` to the code block to turn it into an editor:
-
-```ts {monaco}
-import { ref } from 'vue'
-import { emptyArray } from './external'
-
-const arr = ref(emptyArray(10))
-```
-
-Use `{monaco-run}` to create an editor that can execute the code directly in the slide:
-
-```ts {monaco-run}
-import { version } from 'vue'
-import { emptyArray, sayHello } from './external'
-
-sayHello()
-console.log(`vue ${version}`)
-console.log(emptyArray<number>(10).reduce(fib => [...fib, fib.at(-1)! + fib.at(-2)!], [1, 1]))
-```
-
----
-
-layout: center
-class: text-center
----
-
-# Learn More
-
-[Documentation](https://sli.dev) · [GitHub](https://github.com/slidevjs/slidev) · [Showcases](https://sli.dev/resources/showcases)
-
-<PoweredBySlidev mt-10 />
